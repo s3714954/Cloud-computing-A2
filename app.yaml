@@ -1,0 +1,22 @@
+runtime: php55
+api_version: 1
+
+handlers: 
+- url: /images
+  static_dir: images
+ 
+- url: /signup.php
+  script: signup.php
+
+- url: /main.php
+  script: main.php
+
+- url: /name.php
+  script: name.php
+
+- url: /password.php
+  script: password.php
+
+- url: /.* 
+  script: login.php
+  
