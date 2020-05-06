@@ -50,9 +50,9 @@ echo "<script> location.replace('https://s3714954cca2.ts.r.appspot.com/signup.ph
 <!-- This a the html form for entering user ID & Password -->
 <form method="post" action="login.php">  
 <br>
-&nbsp&nbsp&nbsp&nbspID&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:&nbsp&nbsp<input name="userid" type="text"> <br> <br>
-&nbsp&nbsp&nbsp&nbspPassword:&nbsp&nbsp<input name="password" type="password"> <br> <br>
-&nbsp&nbsp&nbsp&nbsp<input type="submit" name="submit" value="login"/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="submit" name="signup" value="or click me to register now!"/>  
+&nbsp&nbsp&nbspID&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:&nbsp&nbsp<input name="userid" type="text"> <br> <br>
+&nbsp&nbsp&nbspPassword:&nbsp&nbsp<input name="password" type="password"> <br> <br>
+&nbsp&nbsp&nbsp<input type="submit" name="submit" value="login"/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="submit" name="signup" value="or click me to register now!"/>  
 </form> 
 </div></center>
 </body>

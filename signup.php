@@ -54,11 +54,11 @@ if (isset($_POST['submit'])) {
 
 <form method="post" action="signup.php">  
 Please type the ID here <br>
-<input name="userid" type="text"> <br> <br>
+<input name="userid" type="text" maxlength="20" minlength="5"> <br> <br>
 Please type the password here <br>
-<input name="password" type="password"> <br> <br>
+<input name="password" type="password" maxlength="20" minlength="5"> <br> <br>
 Please type the password again for confirmation here <br>
-<input name="passwordconfirm" type="password"> <br> <br>
+<input name="passwordconfirm" type="password" maxlength="20" minlength="5"> <br> <br>
 <input type="submit" name="submit" value="signup"/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="button" name="goback" onclick="window.location.href='https://s3714954cca2.ts.r.appspot.com/login.php'">go back</button>
 </form>
 </div></center>

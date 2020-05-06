@@ -11,6 +11,9 @@ handlers:
 - url: /main.php
   script: main.php
 
+- url: /newpost.php
+  script: newpost.php
+
 - url: /name.php
   script: name.php
 
