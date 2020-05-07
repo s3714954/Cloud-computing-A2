@@ -14,8 +14,8 @@ handlers:
 - url: /newpost.php
   script: newpost.php
 
-- url: /name.php
-  script: name.php
+- url: /viewpost.php
+  script: viewpost.php
 
 - url: /password.php
   script: password.php

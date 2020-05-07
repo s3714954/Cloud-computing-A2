@@ -20,7 +20,14 @@ $postid;
 if(isset($_POST["post"])) {
 
 	 $title = $_POST['title'];
+
+	 if(!empty ($_POST['description'])){
 	 $description = $_POST['description'];
+	 }
+	 else {
+	 $description = "None";
+	 }
+
      $country = $_POST['country'];
 
 	 if(!empty ($_POST['location'])){
@@ -50,8 +57,6 @@ if ($_FILES["fileToUpload"]["size"] > 500000000) {
 	 $postid = 1;
 	 }
 
-	 var_dump($_FILES);
-
 	 $filename = $_FILES['fileToUpload']['name'];
 	 $ext = pathinfo($filename, PATHINFO_EXTENSION);
 	 if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
@@ -59,17 +64,10 @@ if ($_FILES["fileToUpload"]["size"] > 500000000) {
 	 unset($_POST);
      $_POST = array();
 	 }
-
+	 else {
 // upload to gcloud bucket
 	$bucketName = 's3714954cca2.appspot.com';
 	$objectName = $postid . '.' . $ext;
-	/*
-	if (empty (pathinfo($_FILES['fileToUpload']))){
-	echo "<script>alert ('You must upload a photo.'); </script>";
-	unset($_POST);
-    $_POST = array();
-	}
-	*/
 
 function upload_object($bucketName, $objectName, $source) {
 	$storage = new StorageClient();
@@ -92,20 +90,22 @@ function upload_object($bucketName, $objectName, $source) {
 						'Country' => $country,
 						'Location' => $location,
 						'PostID' => $postid,
+						'Type' => $ext,
                         ] );
                         $datastore->insert($task);
                         unset($_POST);
                         $_POST = array();
                         echo "<script> location.replace('https://s3714954cca2.ts.r.appspot.com/main.php') </script>";
+	}
 }
 ?>
 
-<center><div style="padding:15%;">
+<center><div style="padding:10%;">
 <h1>New post</h1>
 
 <form method="post" action="newpost.php" enctype="multipart/form-data">  
 Title&nbsp
-<select name="title" id="title" required>
+<select name="title" id="title" maxlength = "20" required >
 <option disabled selected value> -- Select an option -- </option>
 <option value="Animal">Animal</option>
 <option value="Building">Building</option>
@@ -118,9 +118,8 @@ Title&nbsp
 <option value="Sport">Sport</option>
 </select> <br> <br>
 
-Description<br>
-<textarea name="description" type="textarea" rows="4" cols="25" maxlength = "100">
-</textarea> <br> <br>
+Description&nbsp
+<input type="text" name="description" id="description" maxlength = "40"> <br> <br>
 
 Country&nbsp
 <select name="country" id="country">
@@ -217,8 +216,8 @@ Country&nbsp
 		<option value="Zimbabwe">Zimbabwe</option>
         </select> <br> <br>
 
-Location<br>
-<input type="text" name="location" id="location"> <br> <br>
+Location&nbsp
+<input type="text" name="location" id="location" maxlength = "40"> <br> <br>
 
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPhoto&nbsp
 <input type="file" name="fileToUpload" id="fileToUpload"  accept="image/png, image/jpeg, image/jpg"> <br> <br>
@@ -226,6 +225,6 @@ Location<br>
 <input type="submit" name="post" value="post"/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="button" name="goback" onclick="window.location.href='https://s3714954cca2.ts.r.appspot.com/main.php'">go back</button>
 </form>
 </div></center>
-</body>
 
+</body>
 </html>

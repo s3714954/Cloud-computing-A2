@@ -45,7 +45,7 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
-<center><div style="padding:15%;">
+<center><div style="padding:10%;">
 <h1>Change your password</h1>
 
 <form method="post" action="password.php">  
@@ -56,6 +56,6 @@ Please type the new password here <br>
 <input type="submit" name="submit" value="change"/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="button" name="goback" onclick="window.location.href='https://s3714954cca2.ts.r.appspot.com/main.php'">go back</button>
 </form>
 </div></center>
-</body>
 
+</body>
 </html>

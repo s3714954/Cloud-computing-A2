@@ -49,7 +49,7 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
-<center><div style="padding:15%;">
+<center><div style="padding:10%;">
 <h1>Sign up</h1>
 
 <form method="post" action="signup.php">  
@@ -62,6 +62,6 @@ Please type the password again for confirmation here <br>
 <input type="submit" name="submit" value="signup"/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="button" name="goback" onclick="window.location.href='https://s3714954cca2.ts.r.appspot.com/login.php'">go back</button>
 </form>
 </div></center>
-</body>
 
+</body>
 </html>

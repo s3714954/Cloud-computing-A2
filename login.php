@@ -44,7 +44,7 @@ echo "<script> location.replace('https://s3714954cca2.ts.r.appspot.com/signup.ph
 
 <html>  
 <body>
-<center><div style="padding:15%;">
+<center><div style="padding:10%;">
 <img src="/images/logo.png"/>
 <br> <br> 
 <!-- This a the html form for entering user ID & Password -->
@@ -55,5 +55,6 @@ echo "<script> location.replace('https://s3714954cca2.ts.r.appspot.com/signup.ph
 &nbsp&nbsp&nbsp<input type="submit" name="submit" value="login"/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="submit" name="signup" value="or click me to register now!"/>  
 </form> 
 </div></center>
+
 </body>
 </html>
