@@ -8,6 +8,8 @@ use Google\Cloud\Datastore\DatastoreClient;
 $projectId = 's3714954cca2';
 # Instantiates a client
 $datastore = new DatastoreClient(['projectId' => $projectId]);
+unset($_SESSION["pagenum"]);
+unset($_SESSION["maxpagenum"]);
 ?>
 
 <!--The 3 options for user-->

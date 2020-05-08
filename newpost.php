@@ -107,15 +107,15 @@ function upload_object($bucketName, $objectName, $source) {
 Title&nbsp
 <select name="title" id="title" maxlength = "20" required >
 <option disabled selected value> -- Select an option -- </option>
-<option value="Animal">Animal</option>
-<option value="Building">Building</option>
-<option value="Culture">Culture</option>
-<option value="Funny">Funny</option>
-<option value="Game">Game / Animation</option>
-<option value="Mystery">Mystery</option>
-<option value="Nature">Nature</option>
-<option value="Portrait">Portrait</option>
-<option value="Sport">Sport</option>
+<option value="Animal" onchange="enable()">Animal</option>
+<option value="Building" onchange="enable()">Building</option>
+<option value="Culture" onchange="enable()">Culture</option>
+<option value="Funny" onchange="enable()">Funny</option>
+<option value="Game" onchange="disable()">Game / Animation</option>
+<option value="Mystery" onchange="enable()">Mystery</option>
+<option value="Nature" onchange="enable()">Nature</option>
+<option value="Portrait" onchange="enable()">Portrait</option>
+<option value="Sport" onchange="enable()">Sport</option>
 </select> <br> <br>
 
 Description&nbsp
@@ -228,3 +228,13 @@ Location&nbsp
 
 </body>
 </html>
+
+<script>
+function disable(){
+document.getElementById('location').disabled = true;
+}
+
+function enable(){
+document.getElementById('location').enabled = true;
+}
+</script>
