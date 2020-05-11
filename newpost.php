@@ -57,9 +57,20 @@ if ($_FILES["fileToUpload"]["size"] > 500000000) {
 	 $postid = 1;
 	 }
 
+	 $gql_query = $datastore -> gqlQuery ("Select MyPostID From post Order by MyPostID DESC");
+	 $result = $datastore->runQuery($gql_query);
+	 if ($result -> current() != null){
+	 $result = $result -> current()["MyPostID"];
+	 $mypostid = (int) $result;
+	 $mypostid = $mypostid + 1;
+	 }
+	 else {
+	 $mypostid = 1;
+	 }
+
 	 $filename = $_FILES['fileToUpload']['name'];
 	 $ext = pathinfo($filename, PATHINFO_EXTENSION);
-	 if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
+	 if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg' && $ext !='PNG' && $ext != 'JPG' && $ext != 'JPEG' && $ext != 'Png' && $ext != 'Jpg' && $ext != 'Jpeg') {
      echo "<script>alert ('Please upload a png, jpg or jpeg file.'); </script>";
 	 unset($_POST);
      $_POST = array();
@@ -90,6 +101,7 @@ function upload_object($bucketName, $objectName, $source) {
 						'Country' => $country,
 						'Location' => $location,
 						'PostID' => $postid,
+						'MyPostID' => $mypostid,
 						'Type' => $ext,
                         ] );
                         $datastore->insert($task);
@@ -105,21 +117,21 @@ function upload_object($bucketName, $objectName, $source) {
 
 <form method="post" action="newpost.php" enctype="multipart/form-data">  
 Title&nbsp
-<select name="title" id="title" maxlength = "20" required >
+<select name="title" id="title" required >
 <option disabled selected value> -- Select an option -- </option>
-<option value="Animal" onchange="enable()">Animal</option>
-<option value="Building" onchange="enable()">Building</option>
-<option value="Culture" onchange="enable()">Culture</option>
-<option value="Funny" onchange="enable()">Funny</option>
-<option value="Game" onchange="disable()">Game / Animation</option>
-<option value="Mystery" onchange="enable()">Mystery</option>
-<option value="Nature" onchange="enable()">Nature</option>
-<option value="Portrait" onchange="enable()">Portrait</option>
-<option value="Sport" onchange="enable()">Sport</option>
+<option value="Animal">Animal</option>
+<option value="Building">Building</option>
+<option value="Culture">Culture</option>
+<option value="Funny">Funny</option>
+<option value="Game">Game</option>
+<option value="Mystery">Mystery</option>
+<option value="Nature">Nature</option>
+<option value="Portrait">Portrait</option>
+<option value="Sport">Sport</option>
 </select> <br> <br>
 
 Description&nbsp
-<input type="text" name="description" id="description" maxlength = "40"> <br> <br>
+<input type="text" name="description" id="description" maxlength = "60"> <br> <br>
 
 Country&nbsp
 <select name="country" id="country">
@@ -173,7 +185,7 @@ Country&nbsp
 		<option value="Myanmar">Myanmar</option>
 		<option value="Nepal">Nepal</option>
 		<option value="Netherlands">Netherlands</option>
-		<option value="Zealand">New Zealand</option>
+		<option value="New Zealand">New Zealand</option>
 		<option value="Nicaragua">Nicaragua</option>
 		<option value="North">North Korea</option>
 		<option value="Norway">Norway</option>
@@ -228,13 +240,3 @@ Location&nbsp
 
 </body>
 </html>
-
-<script>
-function disable(){
-document.getElementById('location').disabled = true;
-}
-
-function enable(){
-document.getElementById('location').enabled = true;
-}
-</script>

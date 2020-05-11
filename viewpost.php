@@ -18,6 +18,11 @@ $bucket = $storage->bucket($bucketName); // Put your bucket name here.
 	 $gql_query = $datastore -> gqlQuery ("Select * From post Order by PostID DESC");
 	 $result = $datastore->runQuery($gql_query);
 
+	 if ($result -> current() == null){
+	 echo "<script>alert ('There is no post here. Redirect to main menu.'); </script>";
+	 echo "<script>window.location.href='https://s3714954cca2.ts.r.appspot.com/main.php'; </script>";
+	 }
+
 	 if (!isset($_SESSION["pagenum"]) &&  $result -> valid() == true){
 	 $_SESSION["pagenum"] = $result -> current()["PostID"];
 	 $_SESSION["maxpagenum"] = $result -> current()["PostID"];

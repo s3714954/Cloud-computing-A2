@@ -17,6 +17,9 @@ handlers:
 - url: /viewpost.php
   script: viewpost.php
 
+- url: /mypost.php
+  script: mypost.php
+
 - url: /password.php
   script: password.php
 
