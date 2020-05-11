@@ -1,0 +1,7 @@
+indexes:
+
+- kind: post
+  properties: 
+  - name: Author
+  - name: PostID
+    direction: desc
