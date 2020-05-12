@@ -5,7 +5,6 @@ use Google\Cloud\Datastore\DatastoreClient;
 $projectId = 's3714954cca2';
 # Instantiates a client
 $datastore = new DatastoreClient(['projectId' => $projectId]);
-
 if (isset($_POST['submit'])) {
     // Check if any field is empty
     if(! empty($_POST['userid']) && ! empty($_POST['password'])){

@@ -23,6 +23,9 @@ handlers:
 - url: /password.php
   script: password.php
 
+- url: /logout.php
+  script: logout.php
+
 - url: /.* 
   script: login.php
   
