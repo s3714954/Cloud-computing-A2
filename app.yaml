@@ -20,6 +20,12 @@ handlers:
 - url: /mypost.php
   script: mypost.php
 
+- url: /search.php
+  script: search.php
+
+- url: /searchpost.php
+  script: searchpost.php
+
 - url: /password.php
   script: password.php
 

@@ -1,7 +1,19 @@
 indexes:
-
+  
 - kind: post
   properties: 
   - name: Author
+  - name: PostID
+    direction: desc
+
+- kind: post
+  properties: 
+  - name: Title
+  - name: PostID
+    direction: desc
+
+- kind: post
+  properties: 
+  - name: Country
   - name: PostID
     direction: desc

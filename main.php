@@ -14,6 +14,10 @@ echo "<script>window.location.href='https://s3714954cca2.ts.r.appspot.com/login.
 }
 unset($_SESSION["pagenum"]);
 unset($_SESSION["maxpagenum"]);
+unset($_SESSION["searchpostid"]);
+unset($_SESSION["searchauthor"]);
+unset($_SESSION["searchtitle"]);
+unset($_SESSION["searchcountry"]);
 ?>
 
 <!--The 3 options for user-->
@@ -23,6 +27,7 @@ Please select what you would like to do. <br> <br>
 &nbsp&nbsp&nbsp&nbsp<button type="button" name="newpost" style="width:300px" onclick="window.location.href='https://s3714954cca2.ts.r.appspot.com/newpost.php'">New post</button> <br> <br>
 &nbsp&nbsp&nbsp&nbsp<button type="button" name="viewpost" style="width:300px" onclick="window.location.href='https://s3714954cca2.ts.r.appspot.com/viewpost.php'">View post</button> <br> <br>
 &nbsp&nbsp&nbsp&nbsp<button type="button" name="viewpost" style="width:300px" onclick="window.location.href='https://s3714954cca2.ts.r.appspot.com/mypost.php'">My post</button> <br> <br>
+&nbsp&nbsp&nbsp&nbsp<button type="button" name="viewpost" style="width:300px" onclick="window.location.href='https://s3714954cca2.ts.r.appspot.com/search.php'">Search post</button> <br> <br>
 &nbsp&nbsp&nbsp&nbsp<button type="button" name="changepassword" style="width:300px" onclick="window.location.href='https://s3714954cca2.ts.r.appspot.com/password.php'">Change your password</button> <br> <br>
 &nbsp&nbsp&nbsp&nbsp<button type="button" name="logout" style="width:300px" onclick="window.location.href='https://s3714954cca2.ts.r.appspot.com/logout.php'">Logout</button> <br> <br>
 </div></center>

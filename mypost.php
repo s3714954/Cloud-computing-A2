@@ -16,7 +16,7 @@ $bucketName = 's3714954cca2.appspot.com';
 $bucket = $storage->bucket($bucketName); // Put your bucket name here.
 
 $query = $datastore->query()
-	->filter('Author', '=', $_SESSION['userid'])
+	->filter('Author', '=', intval ($_SESSION['userid']))
 	->kind('post')
 	->order('PostID', 'DESCENDING');
 $result = $datastore->runQuery($query);
@@ -27,8 +27,9 @@ foreach ($result as $entity) {
 
 // 檢查我是否有POST。如果沒有，回到Main.php Correct
 if (empty($posts)) {
-	echo "<script>alert ('You haven't post anything. Redirect to main menu.'); </script>";
+	echo "<script>alert ('You have not post anything. Redirect to main menu.'); </script>";
 	echo "<script>window.location.href='https://s3714954cca2.ts.r.appspot.com/main.php'; </script>";
+	exit();
 }
 
 $targetPost = null;
