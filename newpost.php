@@ -57,11 +57,17 @@ if ($_FILES["fileToUpload"]["size"] > 500000000) {
 	 $postid = 1;
 	 }
 
-	 $gql_query = $datastore -> gqlQuery ("Select MyPostID From post Order by MyPostID DESC");
-	 $result = $datastore->runQuery($gql_query);
-	 if ($result -> current() != null){
-	 $result = $result -> current()["MyPostID"];
-	 $mypostid = (int) $result;
+	 $query = $datastore->query()
+	 ->filter('Author', '=', $_SESSION['userid'])
+	 ->kind('post')
+	 ->order('PostID', 'DESCENDING');
+	 $result = $datastore->runQuery($query);
+	 $posts = [];
+	 foreach ($result as $entity) {
+     array_push($posts, $entity);
+	 }
+	 if (!empty($posts)) {
+	 $mypostid = count($posts);
 	 $mypostid = $mypostid + 1;
 	 }
 	 else {
