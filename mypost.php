@@ -16,7 +16,7 @@ $bucketName = 's3714954cca2.appspot.com';
 $bucket = $storage->bucket($bucketName); // Put your bucket name here.
 
 $query = $datastore->query()
-	->filter('Author', '=', intval ($_SESSION['userid']))
+	->filter('Author', '=', $_SESSION['userid'])
 	->kind('post')
 	->order('PostID', 'DESCENDING');
 $result = $datastore->runQuery($query);

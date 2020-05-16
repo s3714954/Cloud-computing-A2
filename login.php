@@ -44,7 +44,7 @@ echo "<script> location.replace('https://s3714954cca2.ts.r.appspot.com/signup.ph
 <html>  
 <body>
 <center><div style="padding:10%;">
-<img src="/images/logo.png"/>
+<center><img src="/images/logo.png"/></center>
 <br> <br> 
 <!-- This a the html form for entering user ID & Password -->
 <form method="post" action="login.php">  
